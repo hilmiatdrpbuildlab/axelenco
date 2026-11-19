@@ -1,0 +1,44 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-11-19T12:30:23.127Z",
+        "reason": "user brief: palette pinned to #F9F7F2/#F2EDE4 in the original request"
+      },
+      {
+        "rule": "overused-font",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-11-19T12:30:24.984Z",
+        "reason": "user brief: body font pinned to Plus Jakarta Sans in the original request"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-11-19T12:32:02.926Z",
+        "reason": "Claude, evidence: static scan cannot resolve compiled Tailwind in assets/css/site.css; each flagged container has padding (p-6/sm:p-9, px-5 py-24, pt-10, px-5 py-3) and the rendered scans of the live URL at 1440 and 390 report no cramped-padding"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "dist/index.html"
+        ],
+        "createdAt": "2026-11-19T12:32:04.904Z",
+        "reason": "Claude, evidence: static scan cannot resolve compiled Tailwind in assets/css/site.css; each flagged container has padding (p-6/sm:p-9, px-5 py-24, pt-10, px-5 py-3) and the rendered scans of the live URL at 1440 and 390 report no cramped-padding"
+      }
+    ]
+  }
+}
