@@ -33,7 +33,7 @@ Founded by a parent for her own son and for other young people like him. It is a
 
 ## Capabilities and Constraints
 
-- One-page static website: `index.html` with Tailwind (browser CDN build) and vanilla JS in `assets/js/main.js`. It is deployed to Cloudflare Workers static assets from `dist/` (`wrangler.jsonc` → `./dist`). Only `dist/` may be published, never the project root.
+- One-page static website: `index.html` with Tailwind v4 (compiled via `npm run build`) and vanilla JS in `assets/js/main.js`. It is deployed to Cloudflare Workers static assets from `dist/` (`wrangler.jsonc` → `./dist`). Only `dist/` may be published, never the project root.
 - Language: Dutch (Flemish/Belgian usage, `nl-BE`). Partners are addressed formally (u); families and young people informally (je), matching the brochure.
 - Legal: Axel&co is a vzw (non-profit association), ondernemingsnummer **BE 1043.807.793**.
 - **Undecided or missing:** the contact form has no backend yet (client-side confirmation only). The real email address, phone number and farm address/municipality are not yet provided, so the footer uses placeholders. Opening date, capacity and pricing are unknown.

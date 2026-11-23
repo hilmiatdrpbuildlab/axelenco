@@ -54,12 +54,23 @@
   const recipient = (form.dataset.contactEmail || '').trim();
   const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
-  if (!recipient) {
+  const notice = form.querySelector('[data-form-unavailable]');
+
+  if (recipient) {
+    // Het adres ook gewoon tonen, als terugval wanneer mailto niets opent.
+    document.querySelectorAll('[data-recipient-link]').forEach((a) => {
+      a.href = `mailto:${recipient}`;
+      a.textContent = recipient;
+    });
+    form.querySelector('[data-recipient-wrap]').classList.remove('hidden');
+  } else {
     // Nog geen adres ingesteld: eerlijk melden in plaats van doen alsof er iets verstuurd wordt.
     form.querySelector('[data-form-intro]').classList.add('hidden');
-    form.querySelector('[data-form-unavailable]').classList.remove('hidden');
+    notice.classList.remove('hidden');
     form.querySelectorAll('input, textarea').forEach((f) => (f.disabled = true));
+    form.setAttribute('aria-describedby', notice.id);
     submit.setAttribute('aria-disabled', 'true');
+    submit.setAttribute('aria-describedby', notice.id);
   }
 
   const validators = {
@@ -83,7 +94,11 @@
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    if (!recipient) return;
+    if (!recipient) {
+      // Knop doet zichtbaar iets: breng de uitleg in beeld en in focus.
+      notice.focus();
+      return;
+    }
 
     const fields = Object.keys(validators).map((n) => form.elements[n]);
     const firstInvalid = fields.find((f) => !check(f));

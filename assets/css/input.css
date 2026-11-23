@@ -53,9 +53,27 @@
     @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-[0.975rem] font-semibold;
     transition: background-color .4s var(--ease-calm), color .4s var(--ease-calm), border-color .4s var(--ease-calm);
   }
+  .btn-sm { @apply min-h-11 px-4 py-2 text-sm sm:px-5 sm:text-[0.95rem]; }
   .btn-primary { @apply bg-clay-deep text-cream; }
   .btn-primary:hover { background-color: #8F4C2B; }
   .btn-primary[aria-disabled="true"] { @apply cursor-not-allowed bg-sand text-ink-soft; }
+
+  /* Eén schaal voor alle sectiekoppen */
+  .section-title { @apply text-[2.4rem] sm:text-5xl lg:text-[3.6rem]; }
+
+  .footer-link { @apply inline-block py-2 text-ink-soft no-underline; transition: color .4s var(--ease-calm); }
+  .footer-link:hover { @apply text-sage underline; }
+
+  .chip-wrap { @apply cursor-pointer; }
+  .chip-wrap:has(:disabled) { @apply cursor-not-allowed; }
+  .chip {
+    @apply inline-flex min-h-11 items-center rounded-full border border-sand bg-cream px-4 text-[0.95rem] font-medium text-ink-soft;
+    transition: border-color .3s var(--ease-calm), background-color .3s var(--ease-calm), color .3s var(--ease-calm);
+  }
+  .chip-wrap:hover .chip { border-color: rgba(58, 90, 64, .6); }
+  .peer:checked + .chip { @apply border-sage bg-sage text-cream; }
+  .peer:focus-visible + .chip { outline: 3px solid #A65A35; outline-offset: 2px; }
+  .peer:disabled + .chip, .chip-wrap:hover .peer:disabled + .chip { @apply border-sand opacity-70; }
 
   .text-link {
     @apply font-semibold text-sage underline decoration-sage/40;
